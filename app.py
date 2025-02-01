@@ -12,9 +12,14 @@ st.markdown("### Enter competitor pricing and discount details:")
 
 # Collect user input
 input_features = []
-feature_names = ["BasePrice_Nirma", "BasePrice_Surf Excel", "DiscountRate_Nirma", 
+feature_names = ["MRP","NoPromoPrice","UnitsSold","BasePrice_Nirma", "BasePrice_Surf Excel", "DiscountRate_Nirma", 
                  "DiscountRate_Surf Excel", "FinalPrice_Nirma", "FinalPrice_Surf Excel", 
-                 "MRP_Nirma", "MRP_Surf Excel"]
+                 "MRP_Nirma", "MRP_Surf Excel",'CTR', 'AbandonedCartRate', 'BounceRate',
+       'FunnelDrop_ViewToCart', 'FunnelDrop_CartToCheckout',
+       'ReturningVisitorRatio', 'AvgSessionDuration_sec', 'StockStart',
+       'Demand', 'DemandFulfilled', 'Backorders', 'StockEnd', 'ReorderPoint',
+       'OrderPlaced', 'OrderQty', 'LeadTimeFloat', 'SafetyStock',
+       'Revenue_With_Discount', 'Revenue_Without_Discount', 'DiscountRate', 'Revenue']
 
 for feature in feature_names:
     value = st.number_input(f"{feature}:", min_value=0.0, format="%.2f")
