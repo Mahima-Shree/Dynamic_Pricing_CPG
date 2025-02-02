@@ -10,12 +10,22 @@ with open("xgboost_model.pkl", "rb") as f:
 st.title("🛒 Tide Dynamic Pricing Predictor")
 st.markdown("### Enter competitor pricing and discount details:")
 
-# Collect user input
-input_features = []
-feature_names = ['NoPromoPrice', 'DiscountImpact', 'Revenue_With_Discount', 'Revenue_Without_Discount', 'UnitsSold']
+# Define feature names and allow negative values for certain features
+feature_names = [
+    ('NoPromoPrice', 0.0),  # Only non-negative values
+    ('DiscountImpact', None),  # Can be negative
+    ('Revenue_With_Discount', None),  # Can be negative
+    ('Revenue_Without_Discount', None),  # Can be negative
+    ('UnitsSold', 0)  # Only non-negative values
+]
 
-for feature in feature_names:
-    value = st.number_input(f"{feature}:", min_value=0.0, format="%.2f")
+input_features = []
+
+for feature, min_val in feature_names:
+    if min_val is not None:
+        value = st.number_input(f"{feature}:", min_value=min_val, format="%.2f")
+    else:
+        value = st.number_input(f"{feature}:", format="%.2f")
     input_features.append(value)
 
 # Prediction button
