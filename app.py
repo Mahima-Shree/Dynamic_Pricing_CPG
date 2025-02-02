@@ -27,7 +27,7 @@ st.sidebar.info(
 # Define feature names and allow negative values for certain features 
 feature_names = [
     ('NoPromoPrice', 0.0),  # Only non-negative values
-    ('DiscountImpact', None),  # Can be negative
+    ('DiscountRate', None),  # Can be negative
     ('Revenue_With_Discount', None),  # Can be negative
     ('Revenue_Without_Discount', None),  # Can be negative
     ('UnitsSold', 0)  # Only non-negative values
