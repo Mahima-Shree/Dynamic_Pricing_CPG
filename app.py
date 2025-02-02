@@ -12,7 +12,7 @@ st.markdown("### Enter competitor pricing and discount details:")
 
 # Collect user input
 input_features = []
-feature_names = ['NoPromoPrice', 'Revenue_Without_Discount', 'DiscountImpact', 'Revenue_With_Discount', 'UnitsSold', 'RevenuePerUnit']
+feature_names = ['NoPromoPrice', 'DiscountImpact', 'Revenue_With_Discount', 'Revenue_Without_Discount', 'UnitsSold']
 
 for feature in feature_names:
     value = st.number_input(f"{feature}:", min_value=0.0, format="%.2f")
